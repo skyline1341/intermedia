@@ -1,0 +1,109 @@
+$color-default: #eee;
+$color-blue: #137de8;
+$color-green: #23b431;
+$color-red: #c71111;
+$color-orange: #e07e28;
+
+:host {
+  .icons {
+
+    &__buttons {
+      margin-top: 20px;
+    }
+
+    &__group {
+      margin-top: 40px;
+    }
+  }
+
+  .search {
+    &__input {
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+    }
+  }
+
+  .icons-group {
+
+    &__content {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &__icon {
+      margin-top: 20px;
+      flex: 1 1 300px;
+    }
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    &__img {
+      flex: 0 0 auto;
+    }
+
+    &__label {
+      flex: 1 1 auto;
+      padding: 0 20px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+
+    &--default::ng-deep svg {
+      fill: $color-default !important;
+    }
+
+    &--blue::ng-deep svg {
+      fill: $color-blue !important;
+    }
+
+    &--green::ng-deep svg {
+      fill: $color-green !important;
+    }
+
+    &--red::ng-deep svg {
+      fill: $color-red !important;
+    }
+
+    &--orange::ng-deep svg {
+      fill: $color-orange !important;
+    }
+  }
+
+  .button-color {
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 20px 20px 0 0;
+
+    &--default {
+      color: #333;
+      background-color: $color-default;
+    }
+
+    &--blue {
+      color: #fff;
+      background-color: $color-blue;
+    }
+
+    &--green {
+      color: #fff;
+      background-color: $color-green;
+    }
+
+    &--red {
+      color: #fff;
+      background-color: $color-red;
+    }
+
+    &--orange {
+      color: #fff;
+      background-color: $color-orange;
+    }
+  }
+}
+

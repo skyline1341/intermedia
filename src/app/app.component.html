@@ -1,0 +1,32 @@
+<div class="icons">
+
+  <form [formGroup]="filterForm" class="icons__search search">
+    <input formControlName="label" type="text" class="search__input" placeholder="Search by icon name">
+  </form>
+
+  <div class="icons__buttons">
+    <button *ngFor="let color of colorsSelector" class="button-color button-color--{{ color }}" (click)="setIconsColor(color)">{{ color }}</button>
+  </div>
+
+  <ng-container *ngIf="iconsGroups | async as groups">
+    <div *ngIf="groups.length" class="icons__groups">
+      <div *ngFor="let group of groups" class="icons__group icons-group">
+        <h3 class="icons-group__title">Size {{ group.size }}</h3>
+        <app-accordion [name]="'Size '+group.size" class="icons-group__content">
+          <div *ngFor="let icon of group.icons" class="icons-group__icon icon"
+               [ngClass]="currentIconsColorClass$ | async">
+            <div class="icon__img" [innerHTML]="icon.code | safeHtml" [style.flex-basis.px]="icon.size"></div>
+            <div class="icon__label">{{ icon.label }}</div>
+          </div>
+        </app-accordion>
+      </div>
+    </div>
+  </ng-container>
+
+  <!--
+  свойство hidden не пробросится в канвас, как это закладывалось по логике - скроется весь спиннер, а канвас всегда будет отображаться внутри него ( использовать @Input() )
+  ну и у z-spinner высота меньше высоты канваса внутри. исправить через display: inline-block, например.
+  -->
+  <z-spinner size="64" [hidden]="true"></z-spinner>
+
+</div>

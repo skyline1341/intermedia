@@ -1,0 +1,23 @@
+.accordion {
+  padding: 10px 0;
+  width: 100%;
+
+  &__toggle {
+    display: flex;
+    align-items: center;
+  }
+
+  &__name {
+    color: #137de8;
+  }
+
+  &__icon {
+    margin-left: 10px;
+    fill: #137de8;
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
